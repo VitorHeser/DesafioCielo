@@ -6,6 +6,8 @@ Em um terminal, execute o comando `npm start` na raiz do projeto, o qual iniciar
 
 Navegue até `http://localhost:4200/` para acessar o frontend.
 
+<img src="https://github.com/VitorHeser//DesafioCielo/blob/main/src/assets/demo/images/exemplo/exemplo.PNG?raw=true" alt="exemplo.PNG">
+
 ## Backend
 
 Navegue até `http://localhost:3000/` para acessar o backend proveniente do arquivo `.\assets\databases\lancamento-conta-legado.json`.
@@ -17,8 +19,6 @@ Caso tenha que ser alterado a origin do backend, deve ser alterado dentro do arq
 Para que pudesse ser utilizado a lib json-server, foi necessário a retirada dos atributos de pageable do arquivo json original.
 
 Foi inserido alguns dados no .json original para que pudesse criar alguns insights nos dashboards principais.
-
-<img src="https://github.com/VitorHeser//DesafioCielo/blob/main/src/assets/demo/images/exemplo/exemplo.PNG?raw=true" alt="exemplo.PNG">
 
 ## Testes Unitários
 
