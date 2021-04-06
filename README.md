@@ -1,8 +1,13 @@
 Esse Projeto foi gerado com [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.30.
 
+## Dependências
+
+No terminal execute o comando `npm install` na raiz do projeto, para baixar todas as dependências do projeto. 
+
+
 ## FrontEnd
 
-Em um terminal, execute o comando `npm start` na raiz do projeto, o qual iniciará o `ng serve` para rodar o servidor do frontend e o  `json-server` no arquivo de database. 
+Em um terminal, execute o comando `npm start` na raiz do projeto, o qual iniciará o `ng serve` para rodar o servidor do frontend e o `json-server` no arquivo de database. 
 
 Navegue até `http://localhost:4200/` para acessar o frontend.
 
