@@ -18,7 +18,7 @@ Para que pudesse ser utilizado a lib json-server, foi necessário a retirada dos
 
 Foi inserido alguns dados no .json original para que pudesse criar alguns insights nos dashboards principais.
 
-<img src="/VitorHeser/DesafioCielo/blob/main/src/assets/demo/images/exemplo/exemplo.PNG?raw=true" alt="exemplo.PNG">
+<img src="https://github.com/VitorHeser//DesafioCielo/blob/main/src/assets/demo/images/exemplo/exemplo.PNG?raw=true" alt="exemplo.PNG">
 
 ## Testes Unitários
 
