@@ -1,0 +1,100 @@
+<div class="dashboard p-grid p-fluid">
+    <div class="p-col-12 p-md-6 p-lg-3">
+        <div class="highlight-box">
+            <div class="initials" style="background-color:#007be5;color:#00448f">TT</div>
+            <div class="card">
+                <span class="highlight-box-icon pi pi-eye"></span>
+                <span>Total</span>
+                <span class="count">{{Lancamentos.length}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="p-col-12 p-md-6 p-lg-3">
+        <div class="highlight-box">
+            <div class="initials" style="background-color:#20d077;color:#038d4a">PG</div>
+            <div class="card">
+                <span class="highlight-box-icon pi pi-check"></span>
+                <span>Pagos</span>
+                <span class="count">{{ LancamentosPagos.length }}</span>
+            </div>
+        </div>
+    </div>
+    <div class="p-col-12 p-md-6 p-lg-3">
+        <div class="highlight-box">
+            <div class="initials" style="background-color:#f9c851;color:#b58c2b">PD</div>
+            <div class="card">
+                <span class="highlight-box-icon pi pi-check"></span>
+                <span>Pendente</span>
+                <span class="count">{{ LancamentosPendentes.length }}</span>
+            </div>
+        </div>
+    </div>
+    <div class="p-col-12 p-md-6 p-lg-3">
+        <div class="highlight-box">
+            <div class="initials" style="background-color:#ef6262;color:#a83d3b">ER</div>
+            <div class="card">
+                <span class="highlight-box-icon pi pi-question-circle"></span>
+                <span>Erros</span>
+                <span class="count">{{ LancamentosErros.length }}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="p-col-12 p-md-4">
+        <div class="card">
+            <h1 style="font-size:16px">Pagamentos R$</h1>
+            <h1 style="font-size:9px">Últimos 12 meses</h1>
+            <app-chart2 *ngIf="Lancamentos.length>0" [todos]="Lancamentos" [pagos]="LancamentosPagos" [pendentes]="LancamentosPendentes" [erro]="LancamentosErros" style="width: 100%;" ></app-chart2>
+        </div>
+    </div>
+    <div class="p-col-12 p-md-8">
+        <div class="card">
+            <h1 style="font-size:16px">Pagamentos R$ e qtd / mês</h1>
+            <h1 style="font-size:9px">Últimos 12 meses</h1>
+            <app-chart1 *ngIf="Lancamentos.length>0" [todos]="Lancamentos" [pagos]="LancamentosPagos" [pendentes]="LancamentosPendentes" [erro]="LancamentosErros" style="width: 100%;" ></app-chart1>
+        </div>
+    </div>
+    <div class="p-col-12 p-md-12">
+        <div class="card">
+            <h1 style="font-size:16px">Pagamentos x Bancos</h1>
+            <h1 style="font-size:9px">Últimos 12 meses</h1>
+            <app-chart3 *ngIf="Lancamentos.length>0" [todos]="Lancamentos" [pagos]="LancamentosPagos" [pendentes]="LancamentosPendentes" [erro]="LancamentosErros" style="width: 100%;" ></app-chart3>
+        </div>
+    </div>
+
+    <div class="p-col-12 p-md-12">
+        <div class="card">
+            <h1 style="font-size:16px">Lançamentos</h1>
+            <p-table [value]="Lancamentos" [paginator]="true" [rows]="5">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th >Data do lançamento</th>
+                        <th >Descrição</th>
+                        <th >Número</th>
+                        <th >Situação</th>
+                        <th >Data de confirmação</th>
+                        <th >Dados bancários</th>
+                        <th >Valor final</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-product>
+                    <tr>
+                        <td>{{product.dataEfetivaLancamento}}</td>
+                        <td>{{product.lancamentoContaCorrenteCliente != undefined && product.lancamentoContaCorrenteCliente != null ? (product.lancamentoContaCorrenteCliente.nomeTipoOperacao | titlecase)  : ""}}</td>
+                        <td>{{product.numeroEvento}}</td>
+                        <td>{{product.lancamentoContaCorrenteCliente != undefined && product.lancamentoContaCorrenteCliente != null ? (product.lancamentoContaCorrenteCliente.nomeSituacaoRemessa | titlecase) : ""}}</td>
+                        <td>{{product.dataLancamentoContaCorrenteCliente}}</td>
+                        <td>{{ 
+                                (    
+                                    product.nomeBanco + 
+                                    " Ag " + product.lancamentoContaCorrenteCliente.dadosDomicilioBancario.numeroAgencia +
+                                    " CC " +  product.lancamentoContaCorrenteCliente.dadosDomicilioBancario.numeroContaCorrente
+                                ) 
+                            }}</td>
+                        <td>R$ {{product.valorLancamentoRemessa.toLocaleString(undefined, {minimumFractionDigits: 2,maximumFractionDigits: 2}) || "" }}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+</div>
