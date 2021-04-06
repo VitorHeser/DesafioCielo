@@ -104,6 +104,7 @@ import { Chart3Component } from './home/chart3/chart3.component';
 
 @NgModule({
     imports: [
+        ChartModule,
         BrowserModule,
         FormsModule,
         AppRoutingModule,
@@ -120,7 +121,6 @@ import { Chart3Component } from './home/chart3/chart3.component';
         CardModule,
         CarouselModule,
         CascadeSelectModule,
-        ChartModule,
         CheckboxModule,
         ChipsModule,
         ChipModule,
@@ -206,6 +206,7 @@ import { Chart3Component } from './home/chart3/chart3.component';
         {provide: LocationStrategy, useClass: HashLocationStrategy},
         MenuService,MessageService,
         ConfirmationService,
+        ChartModule,
         LancamentoContaLegadoService
     ],
     bootstrap: [AppComponent]
